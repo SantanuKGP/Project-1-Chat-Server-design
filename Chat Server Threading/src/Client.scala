@@ -1,7 +1,6 @@
 import java.io.{DataInputStream, DataOutputStream, IOException}
 import java.net.{Socket, UnknownHostException}
 import scala.io.StdIn.readLine
-import scala.util.Random
 
 
 class Client (user:String,address : String, port : Int) {
