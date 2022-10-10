@@ -14,12 +14,13 @@ class Server (port : Int){
     while(!server.isClosed){
       var temp_user =""
       println("Waiting for a client...")
-      val lock = new Object
+//      val lock = new Object
+      val socket = server.accept()
       val thread = new Thread( () =>{
-        val socket = server.accept()
-        lock.synchronized{
-          lock.notify()
-        }
+
+//        lock.synchronized{
+//          lock.notify()
+//        }
         val userPort = socket.getPort
         ip_users +=1
         val input= new DataInputStream(socket.getInputStream)
@@ -88,9 +89,9 @@ class Server (port : Int){
       })
       thread.start()
 //      Thread.sleep(5000)
-      lock.synchronized{
-        lock.wait()
-      }
+//      lock.synchronized{
+//        lock.wait()
+//      }
     }
 
   }
